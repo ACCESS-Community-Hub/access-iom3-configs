@@ -9,7 +9,7 @@ The purpose of this repository, is to encourage community users to both use and 
 
 ### Report a bug or make a suggestion
 
-Technical issues related to ACCESS-iOM3 are best posted to [github.com/ACCESS-NRI/access-om3-configs/issues](https://github.com/ACCESS-Community-Hub/access-iom3-configs/issues). If you would like to discuss the issue first, feel free to post it on the [access hive forum](https://forum.access-hive.org.au/c/cosima/29).
+Technical issues related to ACCESS-iOM3 are best posted to [github.com/ACCESS-NRI/access-iom3-configs/issues](https://github.com/ACCESS-Community-Hub/access-iom3-configs/issues). If you would like to discuss the issue first, feel free to post it on the [access hive forum](https://forum.access-hive.org.au/c/cosima/29).
 
 ### Add a new iOM3 configuration
 
