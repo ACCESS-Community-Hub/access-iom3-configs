@@ -97,10 +97,6 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  pages/index.md
-  - Infrastructure:
-        - Building: pages/infrastructure/Building.md
-  - Configurations:
-        - Overview: pages/configurations/Overview.md
 
 # Footer
 extra:
