@@ -25,7 +25,6 @@ theme:
         icon: material/theme-light-dark
         name: Switch to dark mode
     # Palette toggle for dark mode
-  - Infrastructure:
     - media: "(prefers-color-scheme: dark)"
       primary: none
       accent: none
@@ -96,7 +95,7 @@ markdown_extensions:
 
 # Navigation
 nav:
-  - Home:                  index.md
+  - Home:                  pages/index.md
   - Infrastructure:
         - Building: pages/infrastructure/Building.md
   - Configurations:
