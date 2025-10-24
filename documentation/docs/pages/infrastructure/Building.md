@@ -1,12 +1,15 @@
 
 
-### Executable Deployments
-#### Building MOM6 standalone with a pre-release build 
+# Executable Deployments
+
+The below are instructions for how to build MOM6 standalone
+
+## Building MOM6 standalone with a pre-release build 
 !!! tip
     This option is faster but requires `write` access to [ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
 
 !!! warning
-    This is NOT a supported workflow and is only provided to show that it is possible.
+    This is [NOT a supported workflow](https://github.com/ACCESS-NRI/ACCESS-OM3/pull/151#issuecomment-3326505434) and is only provided to show that it is possible.
 
 1. Create branch from main, e.g. `cbull_test_mom6standalone`
 1. Edit the spack.yaml to have the following line:
@@ -24,15 +27,24 @@ $ module use /g/data/vk83/prerelease/modules
 $ module load access-mom6/pr151-4
 Loading access-mom6/pr151-4
   Loading requirement: access-mom6/dependencies/pr151-4/access-mocsy/2025.07.002-ucihukj access-mom6/dependencies/pr151-4/access-generic-tracers/2025.08.000-lbeknxx
-$ which access-mom6
-/usr/bin/which: no access-mom6 in (/g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access-mom6-2025.07.000-ruhunvj5oyc2nidysvbmajb42ehtszzm/bin:/home/561/cyb561/.local/bin:/home/561/cyb561/bin:/opt/pbs/default/bin:/opt/nci/bin:/opt/bin:/opt/Modules/v4.3.0/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+which mom6
+/g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access-mom6-2025.07.000-ruhunvj5oyc2nidysvbmajb42ehtszzm/bin/mom6
 ```
-(TODO: the above is a bit wrong!!!)
-Then add the following to your `config.yaml`
 
-See comment here: https://github.com/ACCESS-NRI/ACCESS-OM3/pull/151#issuecomment-3345153642
+Then add the following to your `config.yaml`:
+```bash
+modules:
+    use:
+        - /g/data/vk83/prerelease/modules
+    load:
+        - access-mom6/pr151-4
 
-#### Building MOM6 standalone with your own Spack environment
+model: mom6
+exe: mom6
+```
+The model field is the name of the Payu "model driver" to use. The `exe` field is the path to the executable (or just the executable name if it is already in your PATH).
+
+## Building MOM6 standalone with your own Spack environment
 !!! tip
     This option is slower but does not require `write` access to [ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
 
