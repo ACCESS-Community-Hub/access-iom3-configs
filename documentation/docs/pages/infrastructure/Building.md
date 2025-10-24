@@ -1,8 +1,18 @@
 
 
-# Executable Deployments
+# Building MOM6 standalone 
 
-The below are instructions for how to build MOM6 standalone
+The below are instructions for how to build MOM6 standalone. Here, we show two ways of building MOM6 standalone using Spack with OM3.
+
+Here are some other guides for building MOM6 using FMS, these builds will be more difficult to relate to ACCESS-OM3. Links:
+
+ - https://github.com/angus-g/mom6-ninja-nci
+ - https://noaa-gfdl.github.io/MOM6/ac/
+ - https://www.marshallward.org/mom6workshop/build.html#/title-slide
+ - https://www.youtube.com/watch?v=xuqjV1OYjbI
+
+For some inspiration of why this is fun, have a look at the available test cases in the [`MOM6-examples` repository](https://github.com/NOAA-GFDL/MOM6-examples/tree/dev/gfdl/src).
+
 
 ## Building MOM6 standalone with a pre-release build 
 !!! tip
@@ -44,7 +54,7 @@ exe: mom6
 ```
 The model field is the name of the Payu "model driver" to use. The `exe` field is the path to the executable (or just the executable name if it is already in your PATH).
 
-## Building MOM6 standalone with your own Spack environment
+## Building MOM6 standalone within your own Spack environment
 !!! tip
     This option is slower but does not require `write` access to [ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
 
@@ -80,8 +90,4 @@ spack env activate mom6standalone
 spack install access-mom6 ~access3
 ```
 
-https://github.com/NOAA-GFDL/MOM6-examples/tree/dev/gfdl/src
 
-https://github.com/angus-g/mom6-ninja-nci
-
-https://github.com/ACCESS-NRI/ACCESS-OM3/pull/151/files
