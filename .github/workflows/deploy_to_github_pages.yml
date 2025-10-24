@@ -197,7 +197,7 @@ jobs:
   pr-preview:
     needs: [get-date, build, deploy]
     # If there are open PRs (whose head branch is neither `development` nor `main`), run this job
-    if: ${{ needs.build.outputs.matrix_include != '[]' && ( github.event_name != 'pull_request' || github.event.action != 'closed' ) }}
+    if: ${{ (needs.build.outputs.matrix_include != '[]' || needs.build.outputs.matrix_include != '') && ( github.event_name != 'pull_request' || github.event.action != 'closed' ) }}
     runs-on: ubuntu-latest
     # Run the same job for each of the open PRs found
     strategy:
