@@ -10,7 +10,7 @@ site_url: !ENV [SITE_URL, "http://ACCESS-Community-Hub.github.io/access-iom3-con
 repo_url: https://github.com/ACCESS-Community-Hub/access-iom3-configs
 repo_name: ACCESS-Community-Hub/access-iom3-configs
 edit_uri: blob/main/documentation/docs/ #hopefully will fix the edit button from 404'ing, https://github.com/mkdocs/mkdocs/issues/2416
-
+ 
 # Theme
 theme:
   name: material
