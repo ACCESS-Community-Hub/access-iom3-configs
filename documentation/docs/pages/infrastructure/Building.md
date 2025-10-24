@@ -76,9 +76,26 @@ git tag
 #check out the release you want
 
 git checkout 2025.08.001
+```
 
+At this point we need to modify the `ACCESS-OM3/spack.yaml` so it knows how to build MOM6 on it's own, we do this by modifying this line:
+```bash
+spack:
+  specs:
+    - access-om3@git.2025.08.001
+```
+
+To this:
+```bash
+spack:
+  specs:
+    - access-mom6@2025.07.000 fflags="-march=sapphirerapids -mtune=sapphirerapids -unroll" cflags="-march=sapphirerapids -mtune=sapphirerapids -unroll" cxxflags="-march=sapphirerapids -mtune=sapphirerapids -unroll" ~access3
+
+```
+Note the use of `access-mom6` at `@2025.07.000`, this is because that is what was originally specified in the spack.yaml with tag `2025.08.001`.
+
+```bash
 cd ..
-
 spack env create mom6standalone ACCESS-OM3/spack.yaml
 #Returns
 
@@ -87,7 +104,28 @@ spack env create mom6standalone ACCESS-OM3/spack.yaml
 
 spack env activate mom6standalone
 
+spack concretize -f --fresh
 spack install access-mom6 ~access3
 ```
 
+These last two commands will take some time.
 
+Once completed one can find the executable with:
+```bash
+[cyb561@gadi-login-09 0.22]$ which mom6
+/g/data/tm70/cyb561/spack/0.22/environments/mom6standalone/.spack-env/view/bin/mom6
+```
+
+# Running a simple MOM6 standalone example
+
+Some chat with Dougie:
+> I've modified a few of the configs in:
+
+> /g/data/tm70/ds0092/model/config/MOM6-examples
+> E.g. the one we were looking at yesterday is:
+
+> /g/data/tm70/ds0092/model/config/MOM6-examples/ocean_only/global
+
+> @Dougie Squire, do you have all the input files downloaded somewhere?
+
+> I noticed this /g/data/tm70/ds0092/model/config/MOM6-examples/.datasets/README which suggests you just have three of them.
