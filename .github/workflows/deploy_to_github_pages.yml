@@ -13,9 +13,8 @@ on:
   push: #Action fires anytime there is a push to the following branches
     branches:
       - main
-     #- development # MODIFY IF NEEDED - If you don't have a development branch, you can remove this line.
     paths:
-      - '.documentation/**' # MODIFY IF NEEDED - This should be changed to be DOC_DIR/** based on the env variable DOC_DIR below
+      - 'documentation/**' # MODIFY IF NEEDED - This should be changed to be DOC_DIR/** based on the env variable DOC_DIR below
   pull_request: #Action also fires anytime a PR is (re)opened, closed or synchronized
     types:
       - opened
@@ -24,7 +23,7 @@ on:
   workflow_dispatch: #Action can also be triggered manually
 env:
   TZ: Australia/Canberra
-  DOC_DIR: './documentation' # MODIFY IF NEEDED - Directory where the mkdocs.yml file is located relative to the repository root
+  DOC_DIR: 'documentation' # MODIFY IF NEEDED - Directory where the mkdocs.yml file is located relative to the repository root
   BUILD_DEVELOPMENT_WEBSITE: false # MODIFY IF NEEDED - Set to 'true' to build also the development website from the 'development' branch
   BUILD_DIR: ${{ github.workspace }}/website-build
   WEBSITE_DIR: ${{ github.workspace }}/full-website
@@ -249,7 +248,7 @@ jobs:
             gh pr list \
             --state open \
             --json number,title,headRepositoryOwner,headRefOid,body \
-            --jq 'sort_by(.number) | .[] | select( .headRefName!="main" and .headRepositoryOwner.login=="ACCESS-NRI")' \
+            --jq 'sort_by(.number) | .[] | select( .headRefName!="main" and .headRepositoryOwner.login=="${{ github.repository_owner }}")' \
           )
           
           # If open PRs are found, filter them and output the desired json object
@@ -364,7 +363,7 @@ jobs:
       - name: Create PR previews page
         run: |
           open_prs_json='${{ needs.get-prs-info.outputs.open_prs_info }}'
-          if [[ -z "$open_prs_json" ]]; then
+          if [[ -n "$open_prs_json" ]]; then
             data_json=$(jq -c -n --argjson data "$open_prs_json" '{"data": $data}')
           else
             data_json='{}'
