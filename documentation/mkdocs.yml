@@ -14,7 +14,7 @@ edit_uri: blob/main/documentation/docs/ #hopefully will fix the edit button from
 # Theme
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: overrides 
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
