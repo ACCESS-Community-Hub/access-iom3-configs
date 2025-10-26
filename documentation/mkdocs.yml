@@ -2,7 +2,7 @@
 # - SITE_URL: the URL of the site (Falls back to the default URL)
 # For example, for PR-previews, SITE_URL is set to <default_URL>/pr-preview-NUM
 site_name: access-iom3-configs
-
+ 
 # Site URL
 site_url: !ENV [SITE_URL, "http://ACCESS-Community-Hub.github.io/access-iom3-configs/"]
 
