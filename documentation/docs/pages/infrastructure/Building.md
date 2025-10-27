@@ -1,10 +1,10 @@
-# Building MOM6 standalone 
+## Building MOM6 standalone 
 
 The below are instructions for how to build MOM6 standalone. Here, we show two ways of building MOM6 standalone using Spack with OM3.
 
 For some inspiration of why this is fun, have a look at the available test cases in the [`MOM6-examples` repository](https://github.com/NOAA-GFDL/MOM6-examples/tree/dev/gfdl/src).
 
-## Building MOM6 standalone within your own Spack environment
+### Building MOM6 standalone within your own Spack environment
 !!! tip
     This option is slower but does not require `write` access to [ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
 
@@ -68,7 +68,7 @@ Once completed one can find the executable with:
 /g/data/tm70/cyb561/spack/0.22/environments/mom6standalone/.spack-env/view/bin/mom6
 ```
 
-## Building MOM6 standalone with a pre-release build 
+### Building MOM6 standalone with a pre-release build 
 !!! tip
     This option is faster but requires `write` access to [ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
 
@@ -108,7 +108,7 @@ exe: mom6
 ```
 The model field is the name of the Payu "model driver" to use. The `exe` field is the path to the executable (or just the executable name if it is already in your PATH).
 
-# Additional resources for running MOM6 standalone 
+### Additional resources for running MOM6 standalone 
 
 Here are some other guides for building MOM6 using FMS, these builds will be more difficult to relate to ACCESS-OM3. Links:
 
@@ -117,7 +117,7 @@ Here are some other guides for building MOM6 using FMS, these builds will be mor
  - https://www.marshallward.org/mom6workshop/build.html#/title-slide
  - https://www.youtube.com/watch?v=xuqjV1OYjbI
 
-# Running a simple MOM6 standalone example
+## Running a simple MOM6 standalone example
 
 Some chat with Dougie:
 > I've modified a few of the configs in:
