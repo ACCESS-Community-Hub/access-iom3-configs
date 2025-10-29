@@ -100,6 +100,7 @@ nav:
         - Building: pages/infrastructure/Building.md
   - Configurations:
         - Overview: pages/configurations/Overview.md
+        - MOM6 Examples: pages/configurations/mom6examples.md
 
 # Footer
 extra:
