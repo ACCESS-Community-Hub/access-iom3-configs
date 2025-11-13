@@ -3,6 +3,7 @@
 The below are instructions for how to build MOM6 standalone. Here, we show two ways of building MOM6 standalone using Spack with OM3.
 
 For some inspiration of why this is fun, have a look at the available test cases in the [`MOM6-examples` repository](https://github.com/NOAA-GFDL/MOM6-examples/tree/dev/gfdl/src). For some additional background on the below two workflows, see these official docs:
+
  - [Modify and build an ACCESS model's source code](https://docs.access-hive.org.au/models/build_a_model/build_source_code/)
  - [Create Prereleases and Releases for an ACCESS Model](https://docs.access-hive.org.au/models/build_a_model/create_a_prerelease/)
 
