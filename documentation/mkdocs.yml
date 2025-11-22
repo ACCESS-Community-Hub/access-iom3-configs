@@ -97,7 +97,7 @@ markdown_extensions:
 nav:
   - Home:                  pages/index.md
   - Infrastructure:
-        - Building: pages/infrastructure/Building.md
+        - Building MOM6: pages/infrastructure/Building.md
   - Configurations:
         - Overview: pages/configurations/Overview.md
         - ANU-tub:  pages/configurations/anu-tub.md
