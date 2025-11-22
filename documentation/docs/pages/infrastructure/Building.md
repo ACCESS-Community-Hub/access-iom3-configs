@@ -1,6 +1,10 @@
+To run idealised models, or add extra features for yourself and others, you will likely need to build a MOM6 executable.
+The aim of this page is provide instructions for how to do this using the infrastructure provided by ACCESS-NRI.
+If you notice anything that is missing or could be improved in the explanation please [raise an issue!](https://github.com/ACCESS-Community-Hub/access-iom3-configs/issues)
+
 # Building MOM6 standalone 
 
-The below are instructions for how to build MOM6 standalone. Here, we show two ways of building MOM6 standalone using Spack with OM3.
+The below are instructions for how to build MOM6 standalone. Here, we show two ways of building MOM6 standalone using [Spack](https://spack.io/) with OM3.
 
 For some inspiration of why this is fun, have a look at the available test cases in the [`MOM6-examples` repository](https://github.com/NOAA-GFDL/MOM6-examples/tree/dev/gfdl/src). For some additional background on the below two workflows, see these official docs:
 
