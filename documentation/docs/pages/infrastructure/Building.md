@@ -99,7 +99,7 @@ Once completed one can find the executable with:
 /g/data/tm70/cyb561/spack/0.22/environments/mom6standalone/.spack-env/view/bin/mom6
 ```
 !!! note
-    The `mom6` executable can only be found if the spack environment it is built in is `activate`d. That is,
+    The `mom6` executable can only be found if the spack environment it is built from is `activated`. Specifically,
     running once `spack deactivate` is run `which mom6` will not be able to find the MOM6 executable unless it is added
     to `PATH`.
 
