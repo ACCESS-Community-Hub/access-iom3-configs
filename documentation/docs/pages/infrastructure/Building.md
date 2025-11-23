@@ -90,7 +90,7 @@ Now we can create the spack environment in which to build MOM6:
 These last two commands will take some time.
 !!! tip
     `spack concretize` only need be re-run if there are changes to the `spack.yaml` file. If changes are made to the MOM6
-    source code that `mom6standalone` is built from, running `spack install` should be sufficient for to correctly
+    source code that `mom6standalone` is built from, running `spack install` should be sufficient for the build system to use the modified source code.
      However, if something does not work correctly running `spack concretize` should fix things up.
 
 Once completed one can find the executable with:
