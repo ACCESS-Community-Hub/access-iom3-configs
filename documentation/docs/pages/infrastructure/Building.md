@@ -22,7 +22,7 @@ Before starting on the below steps, it is suggested that you install your own ve
 With spack installed, we first need to change to the spack directory, then load spack's custom bash script and check everything is up to date:
 
 ```bash
-\[user1234@gadi-login ~\] cd /g/data/$PROJECT/$USER/spack/0.22
+\[user1234@gadi-login \~\] cd /g/data/\$PROJECT/\$USER/spack/0.22
 
 \[user1234@gadi-login 0.22\] . spack-config/spack-enable.bash
 
@@ -34,7 +34,7 @@ With spack installed, we first need to change to the spack directory, then load 
 
 \[user1234@gadi-login spack-config\] git pull
 
-\[user1234@gadi-login spack-config\] cd /g/data/$PROJECT/$USER/spack/0.22
+\[user1234@gadi-login spack-config\] cd /g/data/\$PROJECT/\$USER/spack/0.22
 ```
 
 Now we clone ACCESS-OM3 into our spack directory:
