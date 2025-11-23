@@ -10,7 +10,12 @@ authors:
     email: chris.bull@anu.edu.au
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
     orcid: 'https://orcid.org/0000-0001-8362-3446'
-  - description: "Configuration repository for access iom3 configurations"
+  - given-names: Josef Istvan
+    family-names: Bisits
+    email: jbisits@gmail.com
+    affiliation: Biological Earth and Environmental Science, University of New South Wales, Sydney, Australia
+    orcid: 'https://orcid.org/0000-0001-8362-3446'
+  - description: "https://orcid.org/0000-0002-6340-4470"
     type: 
     value: 
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-iom3-configs'
