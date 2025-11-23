@@ -100,7 +100,7 @@ Once completed one can find the executable with:
 ```
 !!! note
     The `mom6` executable can only be found if the spack environment it is built from is `activated`. Specifically,
-    running once `spack deactivate` is run `which mom6` will not be able to find the MOM6 executable unless it is added
+    if `spack deactivate` is run, the command `which mom6` will not be able to find the MOM6 executable unless it is added.
     to `PATH`.
 
 ## Building MOM6 standalone with a pre-release build 
