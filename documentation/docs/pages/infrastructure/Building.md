@@ -21,7 +21,7 @@ For some inspiration of why this is fun, have a look at the available test cases
 Before starting on the below steps, it is suggested that you install your own version of Spack. There are instructions on how to do that [here](https://docs.access-hive.org.au/getting_started/spack/#enable-spack), you can stop once you've completed the [enable spack step](https://docs.access-hive.org.au/getting_started/spack/#enable-spack) (i.e. you may skip the test step).
 With spack installed, we first need to change to the spack directory, then load spack's custom bash script and check everything is up to date:
 
-```bash
+```terminal
 [user1234@gadi-login ~] cd /g/data/$PROJECT/$USER/spack/0.22
 
 [user1234@gadi-login 0.22] . spack-config/spack-enable.bash
@@ -38,16 +38,16 @@ With spack installed, we first need to change to the spack directory, then load 
 ```
 
 Now we clone ACCESS-OM3 into our spack directory:
-```bash
-\[user1234@gadi-login 0.22\] git clone git@github.com:ACCESS-NRI/ACCESS-OM3.git
+```terminal
+[user1234@gadi-login 0.22] git clone git@github.com:ACCESS-NRI/ACCESS-OM3.git
 
-\[user1234@gadi-login 0.22\] cd ACCESS-OM3
+[user1234@gadi-login 0.22] cd ACCESS-OM3
 
-\[user1234@gadi-login ACCESS-OM3\] git tag
+[user1234@gadi-login ACCESS-OM3] git tag
 
 #check out the release you want
 
-\[user1234@gadi-login ACCESS-OM3\] git checkout 2025.08.001
+[user1234@gadi-login ACCESS-OM3] git checkout 2025.08.001
 ```
 
 At this point we need to modify the `ACCESS-OM3/spack.yaml` so it knows how to build MOM6 on it's own, we do this by modifying this line:
@@ -76,18 +76,18 @@ Then we have to comment out the following lines:
 ```
 
 Now we can create the spack environment in which to build MOM6:
-```bash
-\[user1234@gadi-login ACCESS-OM3\] cd ..
-\[user1234@gadi-login 0.22\] spack env create mom6standalone ACCESS-OM3/spack.yaml
+```terminal
+[user1234@gadi-login ACCESS-OM3] cd ..
+[user1234@gadi-login 0.22] spack env create mom6standalone ACCESS-OM3/spack.yaml
 #Returns
 
 ==> Created environment mom6standalone in: /g/data/tm70/cyb561/spack/0.22/environments/mom6standalone
 ==> Activate with: spack env activate mom6standalone
 
-\[user1234@gadi-login 0.22\] spack env activate mom6standalone -p
+[user1234@gadi-login 0.22] spack env activate mom6standalone -p
 
-\[mom6standalone\]\[user1234@gadi-login 0.22\] spack concretize -f --fresh
-\[mom6standalone\]\[user1234@gadi-login 0.22\] spack install access-mom6 ~access3
+[mom6standalone][user1234@gadi-login 0.22] spack concretize -f --fresh
+[mom6standalone][user1234@gadi-login 0.22] spack install access-mom6 ~access3
 ```
 
 These last two commands will take some time.
@@ -97,8 +97,8 @@ These last two commands will take some time.
      However, if something does not work correctly running `spack concretize` should fix things up.
 
 Once completed one can find the executable with:
-```bash
-\[mom6standalone\]\[cyb561@gadi-login-09 0.22\]$ which mom6
+```terminal
+[mom6standalone][cyb561@gadi-login-09 0.22]$ which mom6
 /g/data/tm70/cyb561/spack/0.22/environments/mom6standalone/.spack-env/view/bin/mom6
 ```
 !!! warning
