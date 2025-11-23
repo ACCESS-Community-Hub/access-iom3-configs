@@ -91,7 +91,7 @@ These last two commands will take some time.
 !!! tip
     `spack concretize` only need be re-run if there are changes to the `spack.yaml` file. If changes are made to the MOM6
     source code that `mom6standalone` is built from, running `spack install` should be sufficient for to correctly
-    update the MOM6 build. However, if something does not work correctly running `concretize` should fix things up.
+     However, if something does not work correctly running `spack concretize` should fix things up.
 
 Once completed one can find the executable with:
 ```bash
