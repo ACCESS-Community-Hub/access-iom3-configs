@@ -150,11 +150,18 @@ When loading the pre-release a slight change of text is needed, here's an exampl
 module purge
 module use /g/data/vk83/prerelease/modules
 module load access-mom6/pr151-4
-Loading access-mom6/pr151-4
-  Loading requirement: access-mom6/dependencies/pr151-4/access-mocsy/2025.07.002-ucihukj access-mom6/dependencies/pr151-4/access-generic-tracers/2025.08.000-lbeknxx
 which mom6
-/g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access-mom6-2025.07.000-ruhunvj5oyc2nidysvbmajb42ehtszzm/bin/mom6
 ```
+
+<terminal-window>
+  <terminal-line data="input", directory="0.22">module purge</terminal-line>
+  <terminal-line data="input", directory="0.22">module use /g/data/vk83/prerelease/modules</terminal-line>
+  <terminal-line data="input", directory="0.22">module load access-mom6/pr151-4</terminal-line>
+  <terminal-line>Loading access-mom6/pr151-4</terminal-line>
+  <terminal-line>Loading requirement: access-mom6/dependencies/pr151-4/access-mocsy/2025.07.002-ucihukj access-mom6/dependencies/pr151-4/access-generic-tracers/2025.08.000-lbeknxx</terminal-line>
+  <terminal-line data="input", directory="0.22">which mom6</terminal-line>
+  <terminal-line>/g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access-mom6-2025.07.000-ruhunvj5oyc2nidysvbmajb42ehtszzm/bin/mom6</terminal-line>
+</terminal-window>
 
 Then add the following to your `config.yaml`:
 ```yaml
