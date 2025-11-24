@@ -32,7 +32,7 @@ With spack installed, we first need to change to the spack directory, then load 
 ```
 
 Now we clone ACCESS-OM3 into our spack directory:
-```terminal
+```bash
 [user1234@gadi-login 0.22] git clone git@github.com:ACCESS-NRI/ACCESS-OM3.git
 
 [user1234@gadi-login 0.22] cd ACCESS-OM3
@@ -70,7 +70,7 @@ Then we have to comment out the following lines:
 ```
 
 Now we can create the spack environment in which to build MOM6:
-```terminal
+```bash
 [user1234@gadi-login ACCESS-OM3] cd ..
 [user1234@gadi-login 0.22] spack env create mom6standalone ACCESS-OM3/spack.yaml
 #Returns
@@ -91,7 +91,7 @@ These last two commands will take some time.
      However, if something does not work correctly running `spack concretize` should fix things up.
 
 Once completed one can find the executable with:
-```terminal
+```bash
 [mom6standalone][cyb561@gadi-login-09 0.22]$ which mom6
 /g/data/tm70/cyb561/spack/0.22/environments/mom6standalone/.spack-env/view/bin/mom6
 ```
