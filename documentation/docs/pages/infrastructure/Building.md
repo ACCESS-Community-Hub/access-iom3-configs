@@ -21,19 +21,13 @@ For some inspiration of why this is fun, have a look at the available test cases
 Before starting on the below steps, it is suggested that you install your own version of Spack. There are instructions on how to do that [here](https://docs.access-hive.org.au/getting_started/spack/#enable-spack), you can stop once you've completed the [enable spack step](https://docs.access-hive.org.au/getting_started/spack/#enable-spack) (i.e. you may skip the test step).
 With spack installed, we first need to change to the spack directory, then load spack's custom bash script and check everything is up to date:
 
-```terminal
+```bash
 [user1234@gadi-login ~] cd /g/data/$PROJECT/$USER/spack/0.22
-
 [user1234@gadi-login 0.22] . spack-config/spack-enable.bash
-
 [user1234@gadi-login 0.22] cd spack-packages
-
 [user1234@gadi-login spack-packages] git pull
-
 [user1234@gadi-login spack-packages] cd ../spack-config 
-
 [user1234@gadi-login spack-config] git pull
-
 [user1234@gadi-login spack-config] cd /g/data/$PROJECT/$USER/spack/0.22
 ```
 
