@@ -31,6 +31,18 @@ git pull
 cd /g/data/$PROJECT/$USER/spack/0.22
 ```
 
+<terminal-window>
+  <terminal-line data="input"> cd /g/data/$PROJECT/$USER/spack/0.22</terminal-line>
+  <terminal-line data="input", directory="0.22">spack-config/spack-enable.bash</terminal-line>
+  <terminal-line data="input", directory="0.22">cd spack-packages</terminal-line>
+  <terminal-line data="input", directory="spack-packages">git pull</terminal-line>
+  <terminal-line>pull any git changes to spack-packages</terminal-line>
+  <terminal-line data="input", directory="spack-packages">cd ../spack-config</terminal-line>
+  <terminal-line data="input", directory="spack-config">git pull</terminal-line>
+  <terminal-line>pull any git changes to spack-config</terminal-line>
+  <terminal-line data="input", directory="spack-config"> cd /g/data/$PROJECT/$USER/spack/0.22</terminal-line>
+</terminal-window>
+
 Now we clone ACCESS-OM3 into our spack directory:
 ```bash
 git clone git@github.com:ACCESS-NRI/ACCESS-OM3.git
@@ -38,6 +50,15 @@ cd ACCESS-OM3
 git tag #check out the release you want
 git checkout 2025.08.001
 ```
+
+<terminal-window>
+  <terminal-line data="input", directory="0.22">git clone git@github.com:ACCESS-NRI/ACCESS-OM3.git</terminal-line>
+  <terminal-line>Cloning into ACCESS-OM3...</terminal-line>
+  <terminal-line data="input", directory="0.22">cd ACCESS-OM3</terminal-line>
+  <terminal-line data="input", directory="ACCESS-OM3">git tag</terminal-line>
+  <terminal-line data="input", directory="ACCESS-OM3">git checkout 2025.08.001</terminal-line>
+  <terminal-line>switching to '2025.08.001'</terminal-line>
+</terminal-window>
 
 At this point we need to modify the `ACCESS-OM3/spack.yaml` so it knows how to build MOM6 on it's own, we do this by modifying this line:
 ```yaml
@@ -68,12 +89,11 @@ Now we can create the spack environment in which to build MOM6:
 ```bash
 cd ..
 spack env create mom6standalone ACCESS-OM3/spack.yaml
-==> Created environment mom6standalone in: /g/data/tm70/cyb561/spack/0.22/environments/mom6standalone
-==> Activate with: spack env activate mom6standalone
 ```
 
 <terminal-window>
-  <terminal-line data="input">spack env create mom6standalone ACCESS-OM3/spack.yaml</terminal-line>
+  <terminal-line data="input", directory="ACCESS-OM3">cd ..</terminal-line>
+  <terminal-line data="input", directory="0.22">spack env create mom6standalone ACCESS-OM3/spack.yaml</terminal-line>
   <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">mom6standalone</span> in: <span class="spack-cyan">/g/data/$PROJECT/$USER/spack/0.22/environments/mom6standalone</span></terminal-line>
   <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env activate mom6standalone</span></terminal-line>
 </terminal-window>
@@ -85,17 +105,25 @@ spack concretize -f --fresh
 spack install access-mom6 ~access3
 ```
 
+<terminal-window>
+    <terminal-line data="input", directory="0.22">spack env activate -p mom6standalone</terminal-line>
+    <terminal-line data="input" directory="[mom6standalone] 0.22" class="spack" >spack concretize -f --fresh</terminal-line>
+    <terminal-line data="input" directory="[mom6standalone] 0.22" class="spack" >spack install access-mom6 ~access3</terminal-line>
+</terminal-window>
+
 These last two commands will take some time.
 !!! tip
     `spack concretize` only need be re-run if there are changes to the `spack.yaml` file. If changes are made to the MOM6
     source code that `mom6standalone` is built from, running `spack install` should be sufficient for the build system to use the modified source code.
      However, if something does not work correctly running `spack concretize` should fix things up.
 
-Once completed one can find the executable with:
-```bash
-which mom6
-/g/data/tm70/cyb561/spack/0.22/environments/mom6standalone/.spack-env/view/bin/mom6
-```
+Once completed one can find the executable with `which mom6`:
+
+<terminal-window>
+<terminal-line data="input" directory="[mom6standalone] 0.22" class="spack" >which mom6</terminal-line>
+<terminal-line>/g/data/$PROJECT/$USER/spack/0.22/environments/mom6standalone/.spack-env/view/bin/mom6</terminal-line>
+</terminal-window>
+
 !!! warning
     The `mom6` executable can only be found if the spack environment it is built from is `activated`. Specifically,
     if `spack deactivate` is run, the command `which mom6` will not be able to find the MOM6 executable unless it is added.
