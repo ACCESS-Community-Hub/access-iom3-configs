@@ -68,10 +68,18 @@ Now we can create the spack environment in which to build MOM6:
 ```bash
 cd ..
 spack env create mom6standalone ACCESS-OM3/spack.yaml
-#Returns
 ==> Created environment mom6standalone in: /g/data/tm70/cyb561/spack/0.22/environments/mom6standalone
 ==> Activate with: spack env activate mom6standalone
+```
 
+<terminal-window>
+  <terminal-line data="input">spack env create mom6standalone ACCESS-OM3/spack.yaml</terminal-line>
+  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">mom6standalone</span> in: <span class="spack-cyan">/g/data/$PROJECT/$USER/spack/0.22/environments/mom6standalone</span></terminal-line>
+  <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env activate mom6standalone</span></terminal-line>
+</terminal-window>
+
+Finally, we `activate` the mom6standalone environment and build MOM6:
+```bash
 spack env activate mom6standalone -p
 spack concretize -f --fresh
 spack install access-mom6 ~access3
