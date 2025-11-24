@@ -118,9 +118,9 @@ spack:
 
 When loading the pre-release a slight change of text is needed, here's an example:
 ```bash
-$ module purge
-$ module use /g/data/vk83/prerelease/modules
-$ module load access-mom6/pr151-4
+[user1234@gadi-login] $ module purge
+[user1234@gadi-login] $ module use /g/data/vk83/prerelease/modules
+[user1234@gadi-login] $ module load access-mom6/pr151-4
 Loading access-mom6/pr151-4
   Loading requirement: access-mom6/dependencies/pr151-4/access-mocsy/2025.07.002-ucihukj access-mom6/dependencies/pr151-4/access-generic-tracers/2025.08.000-lbeknxx
 which mom6
