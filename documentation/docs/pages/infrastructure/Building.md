@@ -16,10 +16,9 @@ For some inspiration of why this is fun, have a look at the available test cases
 
 ## Building MOM6 standalone within your own Spack environment
 !!! tip
-    This option is slower but does not require `write` access to [ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
+    This option is slower but does not require `write` access to [ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3). It does require your own Spack installation.
 
-Before starting on the below steps, it is suggested that you install your own version of Spack. There are instructions on how to do that [here](https://docs.access-hive.org.au/getting_started/spack/#enable-spack), you can stop once you've completed the [enable spack step](https://docs.access-hive.org.au/getting_started/spack/#enable-spack) (i.e. you may skip the test step).
-With spack installed, we first need to change to the spack directory, then load spack's custom bash script and check everything is up to date:
+Before starting on the below steps, you need to install your own version of Spack. There are instructions on how to do that [here](https://docs.access-hive.org.au/getting_started/spack/#enable-spack), you can stop once you've completed the [enable spack step](https://docs.access-hive.org.au/getting_started/spack/#enable-spack) (i.e. you may skip the test step). With spack installed, we first need to change to the spack directory, then load spack's custom bash script and check everything is up to date:
 
 ```bash
 cd /g/data/$PROJECT/$USER/spack/0.22
@@ -33,13 +32,12 @@ cd /g/data/$PROJECT/$USER/spack/0.22
 
 <terminal-window>
   <terminal-line data="input"> cd /g/data/$PROJECT/$USER/spack/0.22</terminal-line>
-  <terminal-line data="input", directory="0.22">spack-config/spack-enable.bash</terminal-line>
+  <terminal-line data="input", directory="0.22">. spack-config/spack-enable.bash</terminal-line>
   <terminal-line data="input", directory="0.22">cd spack-packages</terminal-line>
   <terminal-line data="input", directory="spack-packages">git pull</terminal-line>
   <terminal-line>pull any git changes to spack-packages</terminal-line>
   <terminal-line data="input", directory="spack-packages">cd ../spack-config</terminal-line>
   <terminal-line data="input", directory="spack-config">git pull</terminal-line>
-  <terminal-line>pull any git changes to spack-config</terminal-line>
   <terminal-line data="input", directory="spack-config"> cd /g/data/$PROJECT/$USER/spack/0.22</terminal-line>
 </terminal-window>
 
@@ -113,7 +111,7 @@ spack install access-mom6 ~access3
 
 These last two commands will take some time.
 !!! tip
-    `spack concretize` only need be re-run if there are changes to the `spack.yaml` file. If changes are made to the MOM6
+    `spack concretize` only needs to be re-run if there are changes to the `spack.yaml` file. If changes are made to the MOM6
     source code that `mom6standalone` is built from, running `spack install` should be sufficient for the build system to use the modified source code.
      However, if something does not work correctly running `spack concretize` should fix things up.
 
