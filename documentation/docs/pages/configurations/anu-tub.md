@@ -152,6 +152,7 @@ payu run
 ## Changes to the experiment setup
 
 Mention:
+
 - altering the `diag_table`
 - changing run time
 - editing MOM6 source code
