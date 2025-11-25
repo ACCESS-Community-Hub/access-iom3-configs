@@ -10,16 +10,17 @@ The [ANU-TUB](https://github.com/AndyHoggANU/anu-tub) is a MOM6 configuration th
 
 The configuration was setup by [Andy Hogg](https://github.com/AndyHoggANU) and [Angus Gibson](https://github.com/angus-g) for exploring vertical coordinate choice and design in MOM6 which uses [generalised vertical coordinates](https://mom6.readthedocs.io/en/dev-gfdl/api/generated/pages/General_Coordinate.html) thereby placing vertical coordinate choice in the users hands.
 More specific details about the configuraiton, taken from the repository [README](https://github.com/AndyHoggANU/anu-tub?tab=readme-ov-file#anu-tub), are:
-* The sector is 40° wide, and goes from ~70.3°S to ~70.3°N.
-* It has a 1/4° nominal resolution and a Mercator grid refinement.
-* the default vertical coordinate is ZSTAR with 75 vertical levels.
-* The bathymetry is simple, with a vertical wall to the north, an "Antarctic shelf and slope" in the south and sloping sidewalls on the east and west.
-* The domain is periodic in the east-west direction, allowing zonal flow in a narrow "Drake Passage" between ~65°S and ~52°S.
-* Surface momentum forcing is via a prescribed zonal wind field that is constant, but varies with latitude.
-* Thermal forcing is through relation to a latitude-dependent SST profile, and there is (currently) no freshwater forcing so that salinity is constant. 
-* We use the WRIGHT equation of state, without frazil formation or sea ice.
-* The model includes the PBL surface boundary layer scheme with a contant background diffusivity of $2 \times 10^{-5}$.
-* The MEKE eddy parameterisation scheme is turned off, as is the mixed layer restratification scheme.
+
+- The sector is 40° wide, and goes from ~70.3°S to ~70.3°N.
+- It has a 1/4° nominal resolution and a Mercator grid refinement.
+- the default vertical coordinate is ZSTAR with 75 vertical levels.
+- The bathymetry is simple, with a vertical wall to the north, an "Antarctic shelf and slope" in the south and sloping sidewalls on the east and west.
+- The domain is periodic in the east-west direction, allowing zonal flow in a narrow "Drake Passage" between ~65°S and ~52°S.
+- Surface momentum forcing is via a prescribed zonal wind field that is constant, but varies with latitude.
+- Thermal forcing is through relation to a latitude-dependent SST profile, and there is (currently) no freshwater forcing so that salinity is constant. 
+- We use the WRIGHT equation of state, without frazil formation or sea ice.
+- The model includes the PBL surface boundary layer scheme with a contant background diffusivity of $2 \times 10^{-5}$.
+- The MEKE eddy parameterisation scheme is turned off, as is the mixed layer restratification scheme.
 
 The model has $160 \times 800$ grid points, with a tile layout of $6 \times 40$ to run efficiently on 240 cores.
 With a 1200-second timestep, the standard ZSTAR case takes 1:45 hours per year (~14 years/day) and consumes ~900 SU per model year.
@@ -28,9 +29,10 @@ The relatively low cost of the ANU-TUB configuration allows for a wide variety o
 ## Requirements
 
 The required components for setting up ANU-TUB are:
-* access to the relevant projects on gadi
-* a MOM6 executable
-* a fork or clone of the ANU-TUB repository.
+
+- access to the relevant projects on gadi
+- a MOM6 executable
+- a fork or clone of the ANU-TUB repository.
 
 ### Project access
 
@@ -54,7 +56,7 @@ cd /g/data/$PROJECT/$USER/
 git clone https://github.com/AndyHoggANU/anu-tub.git
 ```
 !!! tip
-    If you have forked the repository and wish to clone the fork, change the AndyHoggANU to your github username.
+    If you have forked the repository and wish to clone the fork, change AndyHoggANU to your github username in the url.
 
 ## Setting up
 
@@ -67,7 +69,7 @@ cd anu-tub/control/zstar
 vim config.yaml
 ```
 
-The contents of the `config.yaml` file should look like:
+The contents of the `config.yaml` file should look like (without the comments that indicate what lines need changing):
 
 ```yaml
 ncpus: 240
