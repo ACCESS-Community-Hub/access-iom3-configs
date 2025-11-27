@@ -142,6 +142,10 @@ input: /path/to/stored/input/files
 Alternatively, the input files can be copied to a directory of your choice.
 Then, add the path to where they have been copied to the `input` field.
 
+### Saving script to copy experiment output to `g/data/`
+
+**Ask Chris if we should provide this or just mention data is saved on scratch so need to be moved to `g/data` if you want to keep it for longer.**
+
 ### Experiment setup with `payu`
 
 First, we load payu into our gadi environment
