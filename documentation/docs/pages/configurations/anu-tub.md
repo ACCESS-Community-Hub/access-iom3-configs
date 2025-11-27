@@ -93,7 +93,7 @@ queue: normal
 model: mom6
 shortpath: /scratch/x77                       # replace with NCI project you are part of
 exe: /g/data/x77/ahg157/exes/MOM6/AG-07f0a144 # replace with path to MOM6 executable
-input: /g/data/x77/amh157/mom6/input/anu-tub  # replace with path to input, possible COSIMA path Chris mentioned
+input: /g/data/x77/amh157/mom6/input/anu-tub  # replace with path to input, see instructions below
 
 storage:
   gdata:
@@ -111,7 +111,7 @@ userscripts:
    archive: qsub sync_output_to_gdata.sh
 ```
 
-As indicated above the `project`, `exe` and `input` information needs to been updated.
+As indicated above the `project`, `shortpath`, `exe` and `input` information needs to been updated.
 Once these changes have been made save and close vim.
 !!! tip
     To enter insert mode in vim press `i` and change the required fields. 
@@ -127,6 +127,22 @@ This can then be manually moved to `/g/data` or the executable script `sync_outp
 
 To run the ANU-TUB model we use [`payu`](https://payu.readthedocs.io/en/stable/install.html), a workflow management tool for running models on gadi.
 This requires membership to project vk83 -- add details of how to become member here (or above).
+We also need to get the necessary input file from **/path/to/stored/input/files.**
+
+### Getting the necessary input files
+
+This can be done in two ways.
+The simplest way is to edit the `input` field in `config.yaml` to point to where these files are located on gadi.
+To do this change the `input` field to
+
+```yaml
+input: /path/to/stored/input/files
+```
+
+Alternatively, the input files can be copied to a directory of your choice.
+Then, add the path to where they have been copied to the `input` field.
+
+### Experiment setup with `payu`
 
 First, we load payu into our gadi environment
 ```bash
@@ -192,6 +208,31 @@ payu sweep
   <terminal-line>Removing symlink /g/data/$PROJECT/$USER/anu-tub/control/zstar/work</terminal-line>
 </terminal-window>
 
+### Getting restart files
+
+Restart files are available that **get info about it.**
+If you wish to use this restart, it needs to be copied into the experiment directory.
+To do this, and check it has been copied to the directory type:
+
+```bash
+cd  /scratch/$PROJECT/$USER/mom6/work/zstar-tag_or_uuid
+cp /path/to/restart .
+ls -a
+```
+
+
+<terminal-window>
+  <terminal-line data="input", directory="zstar"/scratch/$PROJECT/$USER/mom6/archive/zstar-tag_or_uuid></terminal-line>
+  <terminal-line data="input", directory="zstar-tag_or_uuid">cp path/to/restart .</terminal-line>
+  <terminal-line data="input", directory="zstar-tag_or_uuid">ls -a</terminal-line>
+  <terminal-line>.  ..  manifests  metadata.yaml  payu_jobs  pbs_logs  restart441</terminal-line>
+</terminal-window>
+
+!!! tip
+    This is where restart files that are generated at the end of an experiment run are saved.
+
+### Run an experiment
+
 Lastly, we run the experiment with
 
 ```bash
@@ -215,8 +256,17 @@ payu run
 </terminal-window>
 
 !!! tip
-    By default, a restart directory is created that is used when the experiment is run again.
-    If you wish to not restart from this state it, and the corresponding output directory need to be removed within the experiment archive.
+    By default, a new restart directory is created at the end of an experiment that is used to pick up from when the experiment is run again.
+    If you wish to not restart from this state remove the newly created restart directory, and the corresponding output directory. These will be named `restartXXX` and `outputXXX` where `XXX` is a string of numbers.
+
+To check the progress of the experiment type:
+
+```bash
+qstat -swx
+```
+
+into the terminal.
+Further details on [job monitoring](https://opus.nci.org.au/spaces/Help/pages/236880322/Job+monitoring...) are available in the using gadi section of the NCI documentation.
 
 ## Changes to the experiment setup
 
