@@ -19,7 +19,7 @@ More specific details about the configuraiton, taken from the repository [README
 - Surface momentum forcing is via a prescribed zonal wind field that is constant, but varies with latitude.
 - Thermal forcing is through relation to a latitude-dependent SST profile, and there is (currently) no freshwater forcing so that salinity is constant. 
 - We use the WRIGHT equation of state, without frazil formation or sea ice.
-- The model includes the PBL surface boundary layer scheme with a contant background diffusivity of $2 \times 10^{-5}$.
+- The model includes the PBL surface boundary layer scheme with a contant background diffusivity of $2 \times 10^{-5}$m$^{2}$s$^{-1}$.
 - The MEKE eddy parameterisation scheme is turned off, as is the mixed layer restratification scheme.
 
 The model has $160 \times 800$ grid points, with a tile layout of $6 \times 40$ to run efficiently on 240 cores.
@@ -69,7 +69,7 @@ git clone https://github.com/AndyHoggANU/anu-tub.git
 
 With the ANU-TUB repository cloned to gadi we change into the `zstar` directory and edit the necessary part of the `config.yaml` file
 !!! tip
-    The same process below will work for any of the other vertical coordinate choices but `zstar` is a good place to start.
+    The same process below will work for any of the other vertical coordinate choice but `zstar` is a good place to start.
 
 ```bash
 cd anu-tub/control/zstar
