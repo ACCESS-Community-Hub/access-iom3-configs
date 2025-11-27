@@ -135,7 +135,7 @@ module load payu
 ```
 
 <terminal-window>
-  <terminal-line data="input", directory="zstar">module use /g/data/vk83/modulest</terminal-line>
+  <terminal-line data="input", directory="zstar">module use /g/data/vk83/modules</terminal-line>
   <terminal-line data="input", directory="zstar">module load payu</terminal-line>
   <terminal-line>Loading payu/1.2.0</terminal-line>
   <terminal-line>  Loading requirement: singularity</terminal-line>
