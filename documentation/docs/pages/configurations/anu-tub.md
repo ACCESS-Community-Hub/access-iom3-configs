@@ -55,8 +55,15 @@ The following commands clone the repository into the `$USER` directory:
 cd /g/data/$PROJECT/$USER/
 git clone https://github.com/AndyHoggANU/anu-tub.git
 ```
+
+<terminal-window>
+  <terminal-line data="input"> cd /g/data/$PROJECT/$USER</terminal-line>
+  <terminal-line data="input", directory="$USER">git clone https://github.com/AndyHoggANU/anu-tub.git</terminal-line>
+  <terminal-line>Cloning into anu-tub...</terminal-line>
+</terminal-window>
+
 !!! tip
-    If you have forked the repository and wish to clone the fork, change AndyHoggANU to your github username in the url.
+    If you have forked the repository and wish to clone the fork, change `AndyHoggANU` to your github username in the url.
 
 ## Setting up
 
@@ -68,6 +75,11 @@ With the ANU-TUB repository cloned to gadi we change into the `zstar` directory 
 cd anu-tub/control/zstar
 vim config.yaml
 ```
+
+<terminal-window>
+  <terminal-line data="input", directory="$USER">cd anu-tub/control/zstar</terminal-line>
+  <terminal-line data="input", directory="zstar">vim config.yaml</terminal-line>
+</terminal-window>
 
 The contents of the `config.yaml` file should look like (without the comments that indicate what lines need changing):
 
@@ -100,7 +112,11 @@ userscripts:
 ```
 
 As indicated above the `project`, `exe` and `input` information needs to been updated.
-Once these changes have been made save and close vim (with `:wq`).
+Once these changes have been made save and close vim.
+!!! tip
+    To enter insert mode in vim press `i` and change the required fields. 
+    To save and quit type `:wq`.
+    For further information or more commands view a [vim cheat sheet](https://vim.rtorr.com/).
 
 The experiment is designed to run on `scratch` so any output will be saved there.
 This can then be manually moved to `/g/data` or the executable script `sync_output_to_gdata.sh` can be run.
@@ -118,14 +134,36 @@ module use /g/data/vk83/modules
 module load payu
 ```
 
+<terminal-window>
+  <terminal-line data="input", directory="zstar">module use /g/data/vk83/modulest</terminal-line>
+  <terminal-line data="input", directory="zstar">module load payu</terminal-line>
+  <terminal-line>Loading payu/1.2.0</terminal-line>
+  <terminal-line>  Loading requirement: singularity</terminal-line>
+</terminal-window>
+
 Within the `zstar` directory, where the `config.yaml` file we have just edited lives, run:
 
 ```bash
 payu setup
 ```
 
-*add terminal window*
+<terminal-window>
+  <terminal-line data="input", directory="zstar">payu setup</terminal-line>
+  <terminal-line>laboratory path:  /scratch/$PROJECT/$USER/mom6</terminal-line>
+  <terminal-line>input path:  /scratch/$PROJECT/$USER/mom6/input</terminal-line>
+  <terminal-line>work path:  /scratch/$PROJECT/$USER/mom6/work</terminal-line>
+  <terminal-line>archive path:  /scratch/$PROJECT/$USER/mom6/archive</terminal-line>
+  <terminal-line>Found experiment archive: /scratch/$PROJECT/$USER/mom6/archive/zstar-tag_or_uuid</terminal-line>
+  <terminal-line>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
+  <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
+  <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
+  <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
+  <terminal-line>Setting up mom6</terminal-line>
+  <terminal-line>Checking exe, input and restart manifests</terminal-line>
+  <terminal-line>Writing manifests/restart.yaml</terminal-line>
+</terminal-window>
 
+The `tag_or_uuid` is something that will be generated as part of `payu setup` for this experiment.
 !!! tip
     If you recieve a message from `payu` that it expects a git repository run `git init` in the `zstar` directory.
     *Chris this is something I have had to do but maybe there are better ways around it?*
@@ -137,13 +175,44 @@ Now we move the experiment to `scratch` with
 payu sweep
 ```
 
-*add terminal window*
+<terminal-window>
+  <terminal-line data="input", directory="zstar">payu sweep</terminal-line>
+  <terminal-line>laboratory path:  /scratch/$PROJECT/$USER/mom6</terminal-line>
+  <terminal-line>input path:  /scratch/$PROJECT/$USER/mom6/input</terminal-line>
+  <terminal-line>work path:  /scratch/$PROJECT/$USER/mom6/work</terminal-line>
+  <terminal-line>archive path:  /scratch/$PROJECT/$USER/mom6/archive</terminal-line>
+  <terminal-line>Found experiment archive: /scratch/$PROJECT/$USER/mom6/archive/zstar-tag_or_uuid</terminal-line>
+  <terminal-line>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
+  <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
+  <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
+  <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
+  <terminal-line>Setting up mom6</terminal-line>
+  <terminal-line>Checking exe, input and restart manifests</terminal-line>
+  <terminal-line>Removing work path /scratch/$PROJECT/$USER/mom6/work/zstar-tag_or_uuid</terminal-line>
+  <terminal-line>Removing symlink /g/data/$PROJECT/$USER/anu-tub/control/zstar/work</terminal-line>
+</terminal-window>
 
 Lastly, we run the experiment with
 
 ```bash
 payu run
 ```
+
+<terminal-window>
+  <terminal-line data="input", directory="zstar">payu run</terminal-line>
+  <terminal-line>laboratory path:  /scratch/$PROJECT/$USER/mom6</terminal-line>
+  <terminal-line>input path:  /scratch/$PROJECT/$USER/mom6/input</terminal-line>
+  <terminal-line>work path:  /scratch/$PROJECT/$USER/mom6/work</terminal-line>
+  <terminal-line>archive path:  /scratch/$PROJECT/$USER/mom6/archive</terminal-line>
+  <terminal-line>Found experiment archive: /scratch/$PROJECT/$USER/mom6/archive/zstar-tag_or_uuid</terminal-line>
+  <terminal-line>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
+  <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
+  <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
+  <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
+  <terminal-line>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
+  <terminal-line>qsub -q normal -P e14 -l walltime=43200 -l ncpus=240 -l mem=960GB -N tub-new -l wd -j n -v PAYU_PATH=/g/data/vk83/apps/base_conda/envs/payu-1.2.0/bin,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/etc/scl/modulefiles:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -W umask=027 -l storage=gdata/e14+gdata/vk83+gdata/x77+scratch/e14 -- /g/data/vk83/./apps/conda_scripts/payu-1.2.0.d/bin/launcher.sh /g/data/vk83/./apps/base_conda/envs/payu-1.2.0/bin/python3.10 /g/data/vk83/apps/base_conda/envs/payu-1.2.0/bin/payu-run</terminal-line>
+  <terminal-line>155451836.gadi-pbs</terminal-line>
+</terminal-window>
 
 !!! tip
     By default, a restart directory is created that is used when the experiment is run again.
