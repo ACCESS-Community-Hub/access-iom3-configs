@@ -46,9 +46,9 @@ We reccommend [building a MOM6 executable](https://access-community-hub.github.i
 This will provide the most flexibility as source code can be modified.
 If you would like to use an existing standalone MOM6 executable just make sure you know the exact path that points to it.
 
-### Forking or cloning the ANU-TUB repository
+### Cloning the ANU-TUB repository
 
-Either option is fine here so whatever suits you!
+ANU-TUB can either be cloned directly or, you can create a fork and clone that---either option is fine here so whatever suits you!
 The following commands clone the repository into the `$USER` directory:
 
 ```bash
@@ -81,7 +81,7 @@ vim config.yaml
   <terminal-line data="input", directory="zstar">vim config.yaml</terminal-line>
 </terminal-window>
 
-The contents of the `config.yaml` file should look like (without the comments that indicate what lines need changing):
+The contents of the `config.yaml` file should, without the comments indicating what lines need changing, look like:
 
 ```yaml
 ncpus: 240
@@ -220,15 +220,92 @@ payu run
 
 ## Changes to the experiment setup
 
-Mention:
+### Altering the `diag_table`
 
-- altering the `diag_table`
-- changing run time
-- editing MOM6 source code
+By cloning the repository, we have a `diag_table`.
+To edit this use:
+
+```bash
+vim diag_table
+```
+
+
+<terminal-window>
+  <terminal-line data="input", directory="zstar">vim diag_table</terminal-line>
+</terminal-window>
+
+This is a standard `diag_table` for MOM6 so [controlling run time diagnostics](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html) can be handled like any MOM6 model run.
+
+### Changing model run time
+
+To change the model run time we need to edit the `input.nml` file within the `zstar` directory.
+Running,
+
+```bash
+vim input.nml
+```
+
+we get:
+
+```bash
+&mom_input_nml
+    output_directory = './'
+    input_filename = 'r'
+    restart_input_dir = 'INPUT/'
+    restart_output_dir = 'RESTART/'
+    parameter_filename = 'MOM_input', 'MOM_override'
+/
+
+&fms_nml
+    clock_grain = 'MODULE'
+    clock_flags = 'NONE'
+    domains_stack_size = 1200000
+/
+
+&ocean_domains_nml
+/
+
+&diag_manager_nml
+/
+
+&ocean_solo_nml
+    months = 60
+    days = 0
+    date_init = 1, 1, 1, 0, 0, 0
+    hours = 0
+    minutes = 0
+    seconds = 0
+    calendar = 'julian'
+/
+
+&mpp_io_nml
+    deflate_level = 5
+    shuffle = 1
+/
+```
+
+By default, the model is set to run for 60 months.
+To change the length of time update the `months` and `dates` field accordingly.
+!!! warning
+    Be sure not to change other parts of this file (unless you know what you are doing) as it will likely lead to the model not running.
+
+### Editing MOM6 source code
+
+If you have built your own MOM6 executable, as long as you re-build before, and the `$PATH` to the executable has not changed, running:
+
+```bash
+payu setup
+payu sweep
+payu run
+```
+
+should be sufficient for the new changes to the MOM6 source code to be used.
+If not please get in touch!
 
 # Other resources
 
 The following resources may be useful for changing configurations or experiment setup:
 
 - [MOM6 documentation](https://mom6.readthedocs.io/en/main/)
-- [running ACCESS models with `payu`](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/)
+- [Running ACCESS models with `payu`](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/)
+- [Learning to use vim](https://github.com/iggredible/Learn-Vim?tab=readme-ov-file)
