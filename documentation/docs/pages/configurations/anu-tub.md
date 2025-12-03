@@ -1,6 +1,8 @@
 # ANU-TUB, an idealised sector model
 
-The purpose of this page is to demonstrate how to set up the ANU-TUB model up with a MOM6 executable of the user's choice on gadi.
+The purpose of this page is to demonstrate how to:
+1. run an ANU-TUB model with a MOM6 ocean only executable provided by ACCESS-NRI; and/or
+1. set up the ANU-TUB model up with a MOM6 executable of the user's choice on gadi.
 
 ## ANU-TUB configurarion details
 
@@ -25,6 +27,16 @@ More specific details about the configuraiton, taken from the repository [README
 The model has $160 \times 800$ grid points, with a tile layout of $6 \times 40$ to run efficiently on 240 cores.
 With a 1200-second timestep, the standard ZSTAR case takes 1:45 hours per year (~14 years/day) and consumes ~900 SU per model year.
 The relatively low cost of the ANU-TUB configuration allows for a wide variety of idealised experiments to be run that can investigate vertical coordinates, new diagnostics and many other things!
+
+# Using a pre-built ANU-TUB configuration
+
+This will be done once the ACCESS-NRI mom6 ocean only build is done.
+
+# Building your own ANU-TUB configuration
+
+Below the steps for creating your own ANU-TUB configuration are outlined.
+!!! tip
+    This is more advanced than just running the ANU-TUB configuration that is provided, however it does allow more flexibility especially with regards to changing the MOM6 source code the model uses.
 
 ## Requirements
 
@@ -111,7 +123,13 @@ userscripts:
    archive: qsub sync_output_to_gdata.sh
 ```
 
-As indicated above the `project`, `shortpath`, `exe` and `input` information needs to been updated.
+As indicated above the `project`, `shortpath`, `exe` and `input` information needs to been updated:
+
+- `project` needs to be changed to the project which will be used to run the job on gadi;
+- `shortpath` needs to have `x77` changed to the same project number as `project`;
+- `exe` needs to point to the compiled ocean only MOM6 executable to be used in the model, e.g. `exe: /g/data/$PROJECT/$USER/path/to/MOM6executable`
+- `input` needs to point to where the input files are stored. These files are located at **add path once known** so change to `input: /g/data/path/to/files/when/known`.
+
 Once these changes have been made save and close vim.
 !!! tip
     To enter insert mode in vim press `i` and change the required fields. 
@@ -129,7 +147,7 @@ To run the ANU-TUB model we use [`payu`](https://payu.readthedocs.io/en/stable/i
 This requires membership to project vk83 -- add details of how to become member here (or above).
 We also need to get the necessary input file from **/path/to/stored/input/files.**
 
-### Getting the necessary input files
+### Getting the necessary input files (remove once files are saved on gadi)
 
 This can be done in two ways.
 The simplest way is to edit the `input` field in `config.yaml` to point to where these files are located on gadi.
