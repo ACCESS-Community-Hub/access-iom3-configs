@@ -1,1 +1,2 @@
-See [access-community-hub.github.io/access-iom3-configs/](https://access-community-hub.github.io/access-iom3-configs/).
+[website-url]: https://access-om3-idealised-configs.readthedocs.io/
+See [website-url].
