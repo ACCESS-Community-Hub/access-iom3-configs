@@ -1,5 +1,5 @@
 
-Welcome to the documentation for the [ACCESS-iOM3 ocean-seaice model configurations](https://github.com/ACCESS-Community-Hub/access-iom3-configs)! 
+Welcome to the documentation for the [ACCESS-iOM3 ocean-seaice model configurations](https://github.com/ACCESS-Community-Hub/access-iom3-configs)!  
 
 The purpose of this repository, is to encourage community users to both use and share _idealised_ [OM3](https://access-om3-configs.access-hive.org.au/) model configurations.
 
