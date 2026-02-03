@@ -55,7 +55,7 @@ Maybe with Andy's permission can put the restart files into the COSIMA directory
 
 ### MOM6 executable
 
-We reccommend [building a MOM6 executable](https://access-community-hub.github.io/access-iom3-configs/infrastructure/Building/).
+We reccommend [building a MOM6 executable](https://access-om3-idealised-configs.readthedocs.io/infrastructure/Building/).
 This will provide the most flexibility as source code can be modified.
 If you would like to use an existing standalone MOM6 executable just make sure you know the exact path that points to it.
 
